@@ -13,7 +13,7 @@ Tried to make the code as comparable as I can get:
 * Java uses newest version of SpringBoot
 * Node.js uses Express.js
 
-...both on Alpine Docker
+...both on Alpine Docker, both w/o any hacks to make it faster
 
 # My Results ... you should proof by yourself
 
@@ -26,8 +26,9 @@ Also some kind of surprise for me!
 * Both run smoothly on Docker
 
 ## Footprint
-* Java + Springboot is hungry: **900 MB RAM** (for this tiny service!!)
-* Node.js tiny: 6 MB at startup, **30 MB** during load test
+* Java + Springboot + Gradle is hungry: **900 MB RAM** *(for this tiny service!!)* - 
+  I can reduce it to 400 MB w/o Gradle, buut ...
+* Node.js is tiny: 6 MB at startup, **30 MB** during load test
 
 If you have lot micro-services on Kubernetes, this will cost you 30x more RAM! 
 In my AKS clusters the scale is because of RAM (CPU is more than enough): 
